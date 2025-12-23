@@ -6,6 +6,95 @@ body {
   overflow: hidden;
 }
 
+/* Gift Overlay Styles */
+#gift-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-in-out;
+}
+
+.gift-container {
+    text-align: center;
+    cursor: pointer;
+}
+
+.gift-box {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: #d63031;
+    margin: 0 auto;
+    animation: bounce 2s infinite;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.gift-lid {
+    position: absolute;
+    top: -30px;
+    left: -10px;
+    width: 170px;
+    height: 30px;
+    background: #ff7675;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.gift-ribbon {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 100%;
+    background: #fdcb6e;
+}
+
+.gift-lid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 100%;
+    background: #fdcb6e;
+}
+
+.click-message {
+    color: #fff;
+    font-size: 2rem;
+    margin-top: 20px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Main Content Visibility */
+#main-content {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    height: 100%;
+}
+
+#main-content.visible {
+    opacity: 1;
+}
+
 .moon {
   position: absolute;
   top: 50px;

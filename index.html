@@ -10,13 +10,33 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="moon"></div>
-    <div class="container">
+    <!-- Gift Overlay -->
+    <div id="gift-overlay">
+        <div class="gift-container">
+            <div class="gift-box">
+                <div class="gift-lid"></div>
+                <div class="gift-ribbon"></div>
+            </div>
+            <div class="click-message">Click to Open!</div>
+        </div>
+    </div>
+
+    <!-- Audio -->
+    <audio id="bg-music" loop>
+        <source src="Jingle-Bells-3(chosic.com).mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Main Content (Initially Hidden) -->
+    <div id="main-content" class="hidden">
+        <div class="moon"></div>
+        <div class="container">
         <div class="shooting-star"></div>
         <h1 class="wish">Merry Christmas</h1>
         <div id="family-name" class="wish" style="font-size: 2rem; margin-top: 10px;">Rodriguez family</div>
         <img class="tree" src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/christmas/christmasTree.webp" alt="">
         <img class="snow-hill" src="https://raw.githubusercontent.com/farazc60/Project-Images/refs/heads/main/christmas/snowyHills.webp" alt="">
+        </div>
     </div>
     <canvas id="snow"></canvas>
     <script src="script.js"></script>

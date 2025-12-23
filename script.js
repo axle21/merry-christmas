@@ -1,6 +1,30 @@
 const canvas = document.getElementById("snow");
 const ctx = canvas.getContext("2d");
 
+// Gift Box Interaction
+const giftOverlay = document.getElementById('gift-overlay');
+const mainContent = document.getElementById('main-content');
+const bgMusic = document.getElementById('bg-music');
+
+if (giftOverlay) {
+    giftOverlay.addEventListener('click', () => {
+        // Play Music
+        bgMusic.play().catch(error => {
+            console.log("Audio play failed:", error);
+        });
+
+        // Hide Overlay
+        giftOverlay.style.opacity = '0';
+        setTimeout(() => {
+            giftOverlay.style.display = 'none';
+        }, 1000);
+
+        // Show Main Content
+        mainContent.classList.remove('hidden');
+        mainContent.classList.add('visible');
+    });
+}
+
 // Dynamic Family Name
 const urlParams = new URLSearchParams(window.location.search);
 const familyName = urlParams.get('name');
