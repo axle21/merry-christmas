@@ -6,6 +6,36 @@ const giftOverlay = document.getElementById('gift-overlay');
 const mainContent = document.getElementById('main-content');
 const bgMusic = document.getElementById('bg-music');
 
+// Dynamic Family Name & Typing Effect
+const urlParams = new URLSearchParams(window.location.search);
+const nameText = urlParams.get('name') || "Rodriguez family";
+const familyNameElement = document.getElementById('family-name');
+
+// Clear initially
+if (familyNameElement) {
+    familyNameElement.innerText = ""; 
+}
+
+function typeWriter(text, element, speed = 150) {
+    if (!element) return;
+    
+    element.classList.add('typing');
+    let i = 0;
+    element.innerText = "";
+    
+    function type() {
+        if (i < text.length) {
+            element.innerText += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        } else {
+            // Keep cursor blinking for a bit then remove if desired, or just leave it
+            // element.classList.remove('typing');
+        }
+    }
+    type();
+}
+
 if (giftOverlay) {
     giftOverlay.addEventListener('click', () => {
         // Play Music
@@ -22,14 +52,12 @@ if (giftOverlay) {
         // Show Main Content
         mainContent.classList.remove('hidden');
         mainContent.classList.add('visible');
+        
+        // Start Typing Effect after a short delay
+        setTimeout(() => {
+            typeWriter(nameText, familyNameElement);
+        }, 500);
     });
-}
-
-// Dynamic Family Name
-const urlParams = new URLSearchParams(window.location.search);
-const familyName = urlParams.get('name');
-if (familyName) {
-    document.getElementById('family-name').innerText = familyName;
 }
 
 canvas.width = window.innerWidth;

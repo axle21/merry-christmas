@@ -173,6 +173,29 @@ body {
     text-shadow: 0 0 15px #ffcc00, 0 0 30px #ff9900, 0 0 45px #ff6600;
 }
 
+#family-name {
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+#family-name::after {
+    content: '|';
+    position: absolute;
+    right: -15px;
+    animation: blink 0.75s step-end infinite;
+    opacity: 0;
+}
+
+#family-name.typing::after {
+    opacity: 1;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
 @keyframes sparkle {
   0%, 100% {
     text-shadow: 0 0 5px #ff0000, 0 0 10px #ff3333, 0 0 20px #ff6666;
