@@ -8,7 +8,8 @@ const bgMusic = document.getElementById('bg-music');
 
 // Dynamic Family Name & Typing Effect
 const urlParams = new URLSearchParams(window.location.search);
-const nameText = urlParams.get('name') || "Rodriguez family";
+// Use non-breaking space to ensure it renders correctly
+const nameText = (urlParams.get('name') || "Rodriguez family").replace(/ /g, '\u00A0');
 const familyNameElement = document.getElementById('family-name');
 
 // Clear initially
