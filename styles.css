@@ -105,6 +105,26 @@ body {
   border-radius: 50%;
   box-shadow: 0 0 20px #f6f1d5, 0 0 40px #f6f1d5, 0 0 80px #f6f1d5;
   z-index: 0;
+  overflow: hidden;
+}
+
+.santa {
+  position: absolute;
+  top: 50%;
+  left: -60px;
+  width: 60px;
+  height: 40px;
+  background: url('vecteezy_silhouette-of-santa-claus-riding-on-reindeer-sleigh_12786722.jpg') no-repeat center center;
+  background-size: contain;
+  opacity: 0.9;
+  mix-blend-mode: multiply;
+  animation: fly-across 3s linear infinite;
+}
+
+@keyframes fly-across {
+  0% { transform: translate(0, 0) rotate(-5deg); left: -80px; }
+  50% { transform: translate(0, -5px) rotate(-5deg); left: 150%; }
+  100% { transform: translate(0, -5px) rotate(-5deg); left: 150%; }
 }
 
 .container {
